@@ -1,0 +1,98 @@
+.App {
+    text-align: center;
+   
+  }
+  
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    height: 80px;
+  }
+
+  body,
+    .pure-g [class*=pure-u] {
+    font-family: 'Calibri', sans-serif;
+    }
+
+    h1, h2, h3 {
+    font-family: 'Calibri', 'Calibri', sans-serif;
+    }
+
+    h2 {
+        color:rgb(56, 181, 210); 
+    }
+    .container {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 45px 20px;
+      }
+  
+  .App-header {
+    background-color: rgb(56, 181, 210);
+    height: 100px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+  }
+  .App-navbar {
+    border: none;
+    color: white;
+    width: 100%;
+    padding: 2px 2px; 
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+  }
+
+  .App-title {
+    font-size: 1.5em;
+  }
+  
+  .App-intro {
+    font-size: large;
+  }
+
+  input[type="file"] {
+      display: inline-block;
+  }
+  
+  .table {
+        max-width: 90%;
+        margin: 10px;
+  }
+  .table th {
+      text-align: center;
+  }
+
+  .button {
+    background-color: rgb(155, 228, 227); /* Light blue */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    font-size: 16px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+  }
+   
+  .button:hover {
+    background-color: rgb(69, 196, 177); /* Green */
+    color: white;
+  }
+
+  .divider{
+    width:25px;
+    height:auto;
+    display:inline-block;
+}
+
+@keyframes App-logo-spin {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+
+
+  

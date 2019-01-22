@@ -1,68 +1,57 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+# IDENTITY CREDENTIALS dApp
 
-### `npm start`
+## About
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This dApp allows citizens to create identity credentials out of a document scan and request their validation to an authority. Document scans are uploaded into IPFS, the dApp returns then a credential reference number that will unequivocally identify that credential and sets its status to 'Pending'. Authorities can then check the status of a credential by its reference number, check offline the associated IPFS document, and validate the credential. Authorities can also revoke previously validated credentials. 
+Anyone can be an authority or a citizen so that you may follow the entire lifecycle of a credential (created by a citizen, validated by an Authority, revoked by an Authority). To facilitate interaction with the contract, the UI has been designed with two panels: the Citizens view and the Authority view. You may create credentials as a Citizen and validate/revoke them as an Authority.
+**NOTE**: Credentials cannot be validated by Citizens (that is, you should use one Metamask account for the citizen role and change to another Metamask for the Authority role)
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+## Installation
 
-### `npm test`
+1. Create a folder for this project
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. Go to the console and clone the github repository
+    ```javascript
+    git copy 
+    ```
 
-### `npm run build`
+3. Install the necessary dependencies
+    ```javascript
+    npm install
+    ```
+4. Run a local ethereum node with ganache
+    ```javascript
+    ganache-cli
+    ```
+5. Copy the seed phrase and connect these accounts with Metamask
+    Select localhost 8545 network
+    Restore account from seed phrase
+    Paste the seed phrase from the ganache-cli console
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+4. Navigate to the src/ethereum folder and migrate the contract to the development network
+    ```javascript
+    cd /src/ethereum
+    truffle migrate --reset --network development
+    ```
+5. Run the development server 
+    ```javascript
+    // Serves the front-end on http://localhost:3000
+    npm run start
+    ```
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+## Credentials flow
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Please see below a typical credential flow for a better understanding of the dApp functionality:
+Identity Credentials Flow: 
+![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Identity credentials flow")
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## FAQ
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* __How do I use this with the EthereumJS TestRPC?__
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    It's as easy as modifying the config file! [Check out our documentation on adding network configurations](http://truffleframework.com/docs/advanced/configuration#networks). Depending on the port you're using, you'll also need to update line 16 of `src/js/app.js`.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
