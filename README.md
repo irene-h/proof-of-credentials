@@ -1,13 +1,11 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Identity credentials dApp
 
+## About this dApp 
 
-# IDENTITY CREDENTIALS dApp
+This dApp allows citizens to create identity credentials out of a document scan and request their validation to an Authority. This dApp also implements the Authority role by enabling the validation and revokation of credentials. 
 
-## About
+Read more below.
 
-This dApp allows citizens to create identity credentials out of a document scan and request their validation to an authority. Document scans are uploaded into IPFS, the dApp returns then a credential reference number that will unequivocally identify that credential and sets its status to 'Pending'. Authorities can then check the status of a credential by its reference number, check offline the associated IPFS document, and validate the credential. Authorities can also revoke previously validated credentials. 
-Anyone can be an authority or a citizen so that you may follow the entire lifecycle of a credential (created by a citizen, validated by an Authority, revoked by an Authority). To facilitate interaction with the contract, the UI has been designed with two panels: the Citizens view and the Authority view. You may create credentials as a Citizen and validate/revoke them as an Authority.
-**NOTE**: Credentials cannot be validated by Citizens (that is, you should use one Metamask account for the citizen role and change to another Metamask for the Authority role)
 
 ## Installation
 
@@ -18,7 +16,7 @@ Anyone can be an authority or a citizen so that you may follow the entire lifecy
     git copy 
     ```
 
-3. Install the necessary dependencies
+3. Install the necessary dependencies listed in pagacke.json
     ```javascript
     npm install
     ```
@@ -42,16 +40,25 @@ Anyone can be an authority or a citizen so that you may follow the entire lifecy
     npm run start
     ```
 
-## Credentials flow
+## Intearcting with the contract
 
-Please see below a typical credential flow for a better understanding of the dApp functionality:
-Identity Credentials Flow: 
-![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Identity credentials flow")
+The typical application flow of this dApp is as follows:
 
+1. Citizen uploads an ID document scan to IPFS
+2. IPFS returns an ipfsHash
+3. Citizen sends ipfsHash to smart contract and requests a new credential
+4. Smart contract creates a new credential, stores it in the blockchain and returns a reference number
+5. Authority checks status of newly created credentials by passing the reference number (status should be 'Pending') 
+6. Authority validates credential
+7. Authority may revoke a previously validated credential
+8. Citizens and Authority may check credential status at any time by passing the reference number.
 
-## FAQ
+The contract and UI has been prepared in such a way that anyone can represent both the authority and a citizen using different Metamask accounts for each role. This setup enables the follow up of a credential throughout its entire lifecycle (created by a citizen, validated by an Authority, revoked by an Authority). 
 
-* __How do I use this with the EthereumJS TestRPC?__
+The UI shows simultaneously in two different sections the Citizens' view and the Authority's view. You may create credentials as a Citizen and validate/revoke them as an Authority.
 
-    It's as easy as modifying the config file! [Check out our documentation on adding network configurations](http://truffleframework.com/docs/advanced/configuration#networks). Depending on the port you're using, you'll also need to update line 16 of `src/js/app.js`.
+**NOTE**: Credentials cannot be validated by Citizens (that is, you should use one Metamask account for the citizen role and change to another Metamask for the Authority role)
+
+More details are shown in the dApp Flow below: 
+![alt text](https://github.com/irene-h/proof-of-credentials/blob/master/Credentials.png "Identity credentials flow")
 
