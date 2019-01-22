@@ -13,7 +13,7 @@ Read more below.
 
 2. Go to the console and clone the github repository
     ```javascript
-    git copy 
+    git clone https://github.com/irene-h/proof-of-credentials.git
     ```
 
 3. Install the necessary dependencies listed in pagacke.json
@@ -40,7 +40,7 @@ Read more below.
     npm run start
     ```
 
-## Intearcting with the contract
+## Interacting with the contract
 
 The typical application flow of this dApp is as follows:
 
@@ -53,12 +53,14 @@ The typical application flow of this dApp is as follows:
 7. Authority may revoke a previously validated credential
 8. Citizens and Authority may check credential status at any time by passing the reference number.
 
-The contract and UI has been prepared in such a way that anyone can represent both the authority and a citizen using different Metamask accounts for each role. This setup enables the follow up of a credential throughout its entire lifecycle (created by a citizen, validated by an Authority, revoked by an Authority). 
+The contract and UI has been prepared in such a way that anyone can represent both the Authority and a Citizen using different Metamask accounts for each role. This setup enables the follow up of a credential throughout its entire lifecycle (created by a citizen, validated by an Authority, revoked by an Authority). 
 
 The UI shows simultaneously in two different sections the Citizens' view and the Authority's view. You may create credentials as a Citizen and validate/revoke them as an Authority.
 
-**NOTE**: Credentials cannot be validated by Citizens (that is, you should use one Metamask account for the citizen role and change to another Metamask for the Authority role)
+**NOTE**: Credentials cannot be validated by Citizens (that is, you should use one Metamask account for the citizen role and change to another Metamask before validating the credential with the Authority role)
 
 More details are shown in the dApp Flow below: 
 ![alt text](https://github.com/irene-h/proof-of-credentials/blob/master/Credentials.png "Identity credentials flow")
 
+## Questions
+If you have any issues installing or interacting with the contract, please start an issue in the github repository
