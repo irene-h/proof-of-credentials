@@ -43,7 +43,7 @@ Read more below.
 6. Run the development server 
     ```javascript
     // Serves the front-end on http://localhost:3000
-    npm run startt
+    npm run start
     ```
 
 ## Interacting with the contract
