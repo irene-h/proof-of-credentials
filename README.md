@@ -34,10 +34,16 @@ Read more below.
     cd /src/ethereum
     truffle migrate --reset --network development
     ```
-5. Run the development server 
+
+5. Test the contract
+    ```javascript
+    truffle test ./test/TestCredentials.js --network development
+    ```
+
+6. Run the development server 
     ```javascript
     // Serves the front-end on http://localhost:3000
-    npm run start
+    npm run startt
     ```
 
 ## Interacting with the contract
